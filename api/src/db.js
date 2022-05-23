@@ -5,8 +5,8 @@ const path = require('path');
 const {
   DB_USER, DB_PASSWORD, DB_HOST,
 } = process.env;
-const modelRecipe = require('./models/Recipe')
-const modelDiets = require('./models/Diets')
+// const modelRecipe = require('./models/Recipe')
+// const modelDiets = require('./models/Diets')
 
 
 const sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/food`, {
@@ -34,8 +34,8 @@ sequelize.models = Object.fromEntries(capsEntries);
 // En sequelize.models están todos los modelos importados como propiedades
 // Para relacionarlos hacemos un destructuring
 
-modelRecipe(sequelize)
-modelDiets(sequelize)
+// modelRecipe(sequelize)
+// modelDiets(sequelize)
 
 const { Recipes, Diets } = sequelize.models;
 
