@@ -1,9 +1,9 @@
 const { Router } = require('express');
-const { getApiRecipes } = require('../controllers/getApiRecipes')
+const { getApiInfo } = require('../controllers/getApiInfo')
 
 
 const router = Router();
-router.use('/', getApiRecipes)
+router.use('/', getApiInfo)
 
 
 module.exports = router;
