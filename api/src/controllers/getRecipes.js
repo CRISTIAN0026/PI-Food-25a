@@ -47,10 +47,10 @@ const getDbInfo = async () => {
 
 const getApiById = async (id) => {
     try {
-        let getById = await axios.get(`https://api.spoonacular.com/recipes/${id}/information?${process.env.YOUR_API_KEY}`)
+        let getById = await axios.get(`https://api.spoonacular.com/recipes/${id}/information?apiKey=${process.env.YOUR_API_KEY}`)
         return getById
     } catch (error) {
-        
+        return error
     }
 }
 
@@ -72,8 +72,22 @@ const getDbById = async (id) => {
     
 }
 
+const getAllRecipes = async () => {
+    try {
+        const apiInfo = await getApiInfo();
+        const dbInfo = await getDbInfo();
+        const totalInfo = apiInfo.concat(dbInfo);
+        
+        return totalInfo;
+    } catch (error) {
+        return error
+    }
+  
+}
 module.exports={
     getApiInfo,
     getDbInfo,
-    getApiById 
+    getApiById,
+    getDbById,
+    getAllRecipes 
 }
