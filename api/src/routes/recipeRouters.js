@@ -5,7 +5,7 @@ const router = Router();
 
 router.post('/', async (req, res, next) => {
     try {
-        const { name, summary, healthScore, steps, dietTypes } = req.body
+        const { name, summary, healthScore, steps, diets } = req.body
         if(name && summary && healthScore){
             const newRecipe = await Recipes.create({
                 name,
@@ -14,12 +14,11 @@ router.post('/', async (req, res, next) => {
                 steps,
             })
             let dietDb = await Diets.findAll({
-                where: {name: dietTypes}
+                where: {name: diets}
             })
             newRecipe.addDiets(dietDb)
             res.status(200).send(newRecipe) 
         }
-        return res.status(404).send('Incomplete data')
     } catch (error) {
         next(error)
     };
