@@ -6,21 +6,21 @@ const router = Router();
 
 
 router.get('/', async (req, res, next) => {
-    try {
         const { name } = req.query;
         let allRecipes = await getAllRecipes()    
-        
-        if (name) {
-        let recipeByName = await allRecipes.filter(e => e.name.toLowerCase()
-        .includes(name.toString().toLowerCase()));
-        if (recipeByName.length) {
-            res.status(200).send(recipeByName); 
-        }  
+        try {
+            if (name) {
+                let recipeByName = await allRecipes.filter(e => e.name.toLowerCase()
+                .includes(name.toLowerCase()));
+                recipeByName.length?
+                res.status(200).send(recipeByName):
+                res.status(404).send("recipe no found")
+                }else {
+                    res.status(200).send(allRecipes); 
+                }
+        } catch (error) {
+            next(error)
         }
-        res.status(200).send(allRecipes);
-} catch (error){
-    next(error)
-}
 });
 
 
