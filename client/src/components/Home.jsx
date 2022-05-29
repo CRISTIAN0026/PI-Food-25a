@@ -4,6 +4,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import {getRecipes} from '../redux/actions';
 import {Link} from 'react-router-dom';
 import Card from './Card';
+import Paginated from './Paginated';
+
 
 export default function Home() {
     
@@ -57,9 +59,14 @@ export default function Home() {
                     <option>Health Score</option>
                     <option value="asc">From Min to Max</option>
                     <option value="desc">From Max to Min</option>
-                </select>
+            </select>
+            <Paginated 
+            recipeForPage={recipeForPage}
+            allRecipes={allRecipes}
+            paginated={paginated}
+            />
                 {
-                allRecipes && allRecipes.map(e => {
+                currentRecipes?.map(e => {
                     return(
                     <Card name={e.name} image={e.image} diets={e.diets} key={e.id}/>
                     )
