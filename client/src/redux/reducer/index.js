@@ -1,7 +1,7 @@
 import { 
 GET_RECIPES,
 ADD_RECIPE,
-ALPHABETICAL_SORT,
+ALPHABETICALLY_SORT,
 DIET_TYPE_FILTER,
 GET_DIET_TYPES,
 GET_RECIPE_DETAILS,
@@ -10,7 +10,10 @@ SEARCH_RECIPE } from '../actions'
 
 
 const initialState = {
-    recipes: []
+    recipes: [],
+    allRecipes: [],
+    dietTypes: [],
+    recipeDetails: []
 }
 
 const rootReducer = (state = initialState, action) => {
@@ -18,9 +21,40 @@ const rootReducer = (state = initialState, action) => {
         case GET_RECIPES:
             return{
                 ...state,
+                recipes: action.payload,
+                allRecipes: action.payload
+            }
+        case SEARCH_RECIPE:
+            return{
+                ...state,
                 recipes: action.payload
             }
-    
+        case GET_DIET_TYPES:
+            return{
+                ...state,
+                dietsTypes: action.payload
+            }
+        case ADD_RECIPE:
+            return{
+                ...state,
+            }
+        case GET_RECIPE_DETAILS:
+            return {
+                ...state,
+                recipesDetails: action.payload
+            }
+        case DIET_TYPE_FILTER:
+            return{
+
+            }
+        case ALPHABETICALLY_SORT: 
+            return{
+
+            }
+        case HEALTH_SCORE:
+            return{
+
+            }
         default:
             return state
     }
