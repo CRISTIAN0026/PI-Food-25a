@@ -5,7 +5,7 @@ export const GET_RECIPES = 'GET_RECIPES';
 export const ADD_RECIPE = "ADD_RECIPE";
 export const DIET_TYPE_FILTER = "DIET_TYPE_FILTER";
 export const GET_RECIPE_DETAILS = "GET_RECIPE_DETAILS";
-export const ALPHABETICAL_SORT = "ALPHABETICAL_SORT";
+export const ALPHABETICALLY_SORT = "ALPHABETICALLY_SORT";
 export const HEALTH_SCORE = "HEALTH_SCORE";
 export const SEARCH_RECIPE = "SEARCH_RECIPE";
 export const GET_DIET_TYPES = "GET_DIET_TYPES";
@@ -50,7 +50,7 @@ export const getDietTypes = () => {
 }
 
 export const addRecipe = (payload) => {
-    return async function(dispatch) {
+    return async () => {
         try {
             var response = await axios.post('http://localhost:3001/recipe', payload);
             return response;
@@ -59,8 +59,8 @@ export const addRecipe = (payload) => {
         }
     }
 }
-export function getRecipeDetails(payload) {
-    return async function(dispatch) {
+export const getRecipeDetails = (payload) =>{
+    return async (dispatch) => {
         try {
             var response = await axios(`http://localhost:3001/recipes/${payload}`);
             return dispatch({type: GET_RECIPE_DETAILS, payload: response.data})
@@ -70,21 +70,21 @@ export function getRecipeDetails(payload) {
     }
 };
 
-export function dietTypeFilter(payload) {
+export const dietTypeFilter = (payload) => {
     return {
         type: DIET_TYPE_FILTER,
         payload
     }
 };
 
-export function aplhabeticalSort(payload) {
+export const orderAlphabetically = (payload) => {
     return {
-        type: ALPHABETICAL_SORT,
+        type: ALPHABETICALLY_SORT,
         payload
     }
 };
 
-export function scoreSort(payload) {
+export const sortByHealthy = (payload) => {
     return {
         type: HEALTH_SCORE,
         payload
