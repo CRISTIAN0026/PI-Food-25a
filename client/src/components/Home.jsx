@@ -1,5 +1,5 @@
 import React from 'react';
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import {getRecipes} from '../redux/actions';
 import {Link} from 'react-router-dom';
@@ -7,8 +7,18 @@ import Card from './Card';
 
 export default function Home() {
     
-    const dispatch = useDispatch()
-    const allRecipes = useSelector(state => state.recipes)
+    const dispatch = useDispatch();
+    const allRecipes = useSelector(state => state.recipes);
+    const [currentPage, setPage] = useState(1);
+    const [recipeForPage, setRecipeForPage] = useState(9);
+
+    const indexOfLastRecipe = currentPage * recipeForPage
+    const indexOfFirstRecipe = indexOfLastRecipe - recipeForPage
+    const currentRecipes = allRecipes.slice(indexOfFirstRecipe, indexOfLastRecipe)
+
+    const paginated = (pageNumber) => {
+        setPage(pageNumber)
+    }
 
     useEffect(()=>{
         dispatch(getRecipes());
