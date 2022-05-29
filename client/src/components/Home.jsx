@@ -1,18 +1,18 @@
 import React from 'react';
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import {getRecipes} from '../redux/actions';
 import {Link} from 'react-router-dom';
+import Card from './Card';
 
-
-export default Home = () => {
+export default function Home() {
     
     const dispatch = useDispatch()
     const allRecipes = useSelector(state => state.recipes)
 
     useEffect(()=>{
         dispatch(getRecipes());
-    },[])
+    },[dispatch])
 
     const handleClick = e => {
         e.preventDefault()
@@ -25,7 +25,6 @@ export default Home = () => {
         <button onClick={e =>{handleClick(e)}}>Return all recipes</button>
         <div>
         <select>
-                    <option disabled selected>Select...</option>
                     <option value="gluten free">Gluten Free</option>
                     <option value="ketogenic">Keto</option>
                     <option value="vegetarian">Vegetarian</option>
@@ -41,15 +40,21 @@ export default Home = () => {
                     <option value="dairy free">Dairy Free</option>
             </select>
             <select>
-                <option disabled selected>Alphabetically</option>
                 <option value='asc'>Sort ascending</option>
                 <option value='desc'>Sort descending</option>
             </select>
             <select>
-                    <option disabled selected>Health Score</option>
+                    <option>Health Score</option>
                     <option value="asc">From Min to Max</option>
                     <option value="desc">From Max to Min</option>
                 </select>
+                {
+                allRecipes && allRecipes.map(e => {
+                    return(
+                    <Card name={e.name} image={e.image} diets={e.diets} key={e.id}/>
+                    )
+                })
+                }
         </div>
         </div>
     )
