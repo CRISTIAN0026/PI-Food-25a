@@ -2,13 +2,91 @@ import axios from 'axios';
 
 
 export const GET_RECIPES = 'GET_RECIPES';
+export const ADD_RECIPE = "ADD_RECIPE";
+export const DIET_TYPE_FILTER = "DIET_TYPE_FILTER";
+export const GET_RECIPE_DETAILS = "GET_RECIPE_DETAILS";
+export const ALPHABETICAL_SORT = "ALPHABETICAL_SORT";
+export const HEALTH_SCORE = "HEALTH_SCORE";
+export const SEARCH_RECIPE = "SEARCH_RECIPE";
+export const GET_DIET_TYPES = "GET_DIET_TYPES";
+
+
+
 
 export const getRecipes = () => {
     return async (dispatch) => {
-        let json = await axios("http://localhost:3001/recipes");
-        return dispatch({
-            type: GET_RECIPES,
-            payload: json.data
-        });
+        try {
+            var json = await axios("http://localhost:3001/recipes");
+            return dispatch({
+                type: GET_RECIPES,
+                payload: json.data
+            });
+        } catch (error) {
+            return error
+        }
     }
 };
+
+export const getRecipesByName = (payload) => {
+    return async (dispatch) => {
+        try {
+            var response = await axios(`http://localhost:3001/recipes?name=${payload}`);
+            return dispatch({type: SEARCH_RECIPE, payload: response.data})
+        } catch {
+            return alert ('Recipe Not Found')
+        }
+    }
+}
+
+export const getDietTypes = () => {
+    return async (dispatch) => {
+        try{
+            var response = await axios('http://localhost:3001/types');
+            return dispatch({type: GET_DIET_TYPES, payload: response.data.map(d => d.name)});
+        } catch (error) {
+            return error
+        }
+    }
+}
+
+export const addRecipe = (payload) => {
+    return async function(dispatch) {
+        try {
+            var response = await axios.post('http://localhost:3001/recipe', payload);
+            return response;
+        } catch (error) {
+            return error
+        }
+    }
+}
+export function getRecipeDetails(payload) {
+    return async function(dispatch) {
+        try {
+            var response = await axios(`http://localhost:3001/recipes/${payload}`);
+            return dispatch({type: GET_RECIPE_DETAILS, payload: response.data})
+        } catch (error) {
+            return error
+        }
+    }
+};
+
+export function dietTypeFilter(payload) {
+    return {
+        type: DIET_TYPE_FILTER,
+        payload
+    }
+};
+
+export function aplhabeticalSort(payload) {
+    return {
+        type: ALPHABETICAL_SORT,
+        payload
+    }
+};
+
+export function scoreSort(payload) {
+    return {
+        type: HEALTH_SCORE,
+        payload
+    }
+}

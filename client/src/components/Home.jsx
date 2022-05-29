@@ -23,9 +23,6 @@ export default Home = () => {
         <Link to='/recipe'>Create Recipe</Link>
         <h1>Cooking Recipes</h1>
         <button onClick={e =>{handleClick(e)}}>Return all recipes</button>
-        <div>
-            
-        </div>
         </div>
     )
 }
