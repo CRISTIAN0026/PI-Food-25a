@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { getRecipes, dietTypeFilter } from '../redux/actions';
+import { getRecipes, dietTypeFilter, orderAlphabetically, sortByHealthy } from '../redux/actions';
 import {Link} from 'react-router-dom';
 import Card from './Card';
 import Paginated from './Paginated';
@@ -13,6 +13,7 @@ export default function Home() {
     const allRecipes = useSelector(state => state.recipes);
     const [currentPage, setPage] = useState(1);
     const [recipeForPage, setRecipeForPage] = useState(9);
+    const [order, setOrder] = useState('')
 
     const indexOfLastRecipe = currentPage * recipeForPage
     const indexOfFirstRecipe = indexOfLastRecipe - recipeForPage
@@ -37,6 +38,20 @@ export default function Home() {
         setPage(1)
     }
 
+    function handleAlphabeticalSort(e) {
+        e.preventDefault();                
+        dispatch(orderAlphabetically(e.target.value))
+        setPage(1);
+        setOrder(`Order ${e.target.value}`);
+    }
+    
+    function handleScoreSort(e) {
+        e.preventDefault();                
+        dispatch(sortByHealthy(e.target.value));
+        setPage(1);
+        setOrder(`Order ${e.target.value}`);
+    }
+
 
     return(
         <div>
@@ -59,11 +74,11 @@ export default function Home() {
                     <option value="whole 30">Whole 30</option>
                     <option value="dairy free">Dairy Free</option>
             </select>
-            <select>
-                <option value='asc'>Sort ascending</option>
-                <option value='desc'>Sort descending</option>
+            <select onChange={e => handleAlphabeticalSort(e)}>
+                <option value='az'>Sort ascending</option>
+                <option value='za'>Sort descending</option>
             </select>
-            <select>
+            <select onChange={e => handleScoreSort(e)}>
                     <option>Health Score</option>
                     <option value="asc">From Min to Max</option>
                     <option value="desc">From Max to Min</option>

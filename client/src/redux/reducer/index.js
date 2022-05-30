@@ -37,6 +37,7 @@ const rootReducer = (state = initialState, action) => {
         case ADD_RECIPE:
             return{
                 ...state,
+
             }
         case GET_RECIPE_DETAILS:
             return {
@@ -51,13 +52,39 @@ const rootReducer = (state = initialState, action) => {
             recipes: filteredByDietType
             };
         case ALPHABETICALLY_SORT: 
-            return{
-
-            }
+        let sortedRecipes = [...state.recipes]       
+        sortedRecipes = action.payload === 'az' ?
+        state.recipes.sort(function(a, b) {
+            if (a.name.toLowerCase() > b.name.toLowerCase()) return 1;
+            if (a.name.toLowerCase() < b.name.toLowerCase()) return -1;
+            return 0;
+        }) :
+        state.recipes.sort(function(a, b) {
+            if (a.name.toLowerCase() < b.name.toLowerCase()) return 1;
+            if (a.name.toLowerCase() > b.name.toLowerCase()) return -1;
+            return 0;
+        });          
+        return {
+            ...state,
+            recipes: sortedRecipes
+        };
         case HEALTH_SCORE:
-            return{
-
-            }
+        let sortedRecipesByHealthScore = [...state.recipes] 
+            sortedRecipesByHealthScore = action.payload === 'asc' ?
+            state.recipes.sort(function(a, b) {
+            if (a.healthScore > b.healthScore) return 1;
+            if (a.healthScore < b.healthScore) return -1;
+            return 0;
+        }) :
+        state.recipes.sort(function(a, b) {
+            if (a.healthScore < b.healthScore) return 1;
+            if (a.healthScore > b.healthScore) return -1;
+            return 0;
+        });
+        return {
+            ...state,
+            recipes: sortedRecipesByHealthScore
+        };
         default:
             return state
     }
