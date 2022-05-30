@@ -62,7 +62,7 @@ export default function Home() {
             </select>
             <Paginated 
             recipeForPage={recipeForPage}
-            allRecipes={allRecipes}
+            allRecipes={allRecipes.length}
             paginated={paginated}
             />
                 {

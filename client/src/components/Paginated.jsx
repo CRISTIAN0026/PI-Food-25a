@@ -9,12 +9,12 @@ export default function Paginated({recipeForPage, allRecipes, paginated}){
     }
 
     return(
-        <nav>
+        <nav >
             <ul>
                 {pageNumbers &&
                     pageNumbers.map(n => ( 
                         <li key={n}>
-                            <a onClick={() => paginated(n)}>{n}</a>
+                            <a onClick={() => paginated(n)} >{n}</a>
                         </li>
                     ))
                 }
