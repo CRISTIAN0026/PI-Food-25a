@@ -12,7 +12,7 @@ SEARCH_RECIPE } from '../actions'
 const initialState = {
     recipes: [],
     allRecipes: [],
-    dietTypes: [],
+    diets: [],
     recipeDetails: []
 }
 
@@ -44,9 +44,12 @@ const rootReducer = (state = initialState, action) => {
                 recipesDetails: action.payload
             }
         case DIET_TYPE_FILTER:
-            return{
-
-            }
+            const allRecipes = state.allRecipes;        
+            const filteredByDietType = allRecipes.filter(r => r.diets?.some(d => d.toLowerCase() === action.payload.toLowerCase()))           
+            return {
+            ...state,
+            recipes: filteredByDietType
+            };
         case ALPHABETICALLY_SORT: 
             return{
 

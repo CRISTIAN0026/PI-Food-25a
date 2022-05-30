@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import {getRecipes} from '../redux/actions';
+import { getRecipes, dietTypeFilter } from '../redux/actions';
 import {Link} from 'react-router-dom';
 import Card from './Card';
 import Paginated from './Paginated';
@@ -30,25 +30,33 @@ export default function Home() {
         e.preventDefault()
         dispatch(getRecipes())
     }
+
+    const handleFilterDiets = (e) => {
+        e.preventDefault()
+        dispatch(dietTypeFilter(e.target.value))
+        setPage(1)
+    }
+
+
     return(
         <div>
         <Link to='/recipe'>Create Recipe</Link>
         <h1>Cooking Recipes</h1>
         <button onClick={e =>{handleClick(e)}}>Return all recipes</button>
         <div>
-        <select>
+        <select onChange={e => handleFilterDiets(e)}>
                     <option value="gluten free">Gluten Free</option>
-                    <option value="ketogenic">Keto</option>
+                    <option value="ketogenic">Ketogenic</option>
                     <option value="vegetarian">Vegetarian</option>
                     <option value="lacto vegetarian">Lacto-Vegetarian</option>
                     <option value="ovo vegetarian">Ovo-Vegetarian</option>
                     <option value="lacto ovo vegetarian">Lacto-Ovo-Vegetarian</option>
                     <option value="vegan">Vegan</option>
-                    <option value="pescetarian">Pescetarian</option>
-                    <option value="paleolithic">Paleo</option>
+                    <option value="pescatarian">Pescatarian</option>
+                    <option value="paleolithic">Paleolithic</option>
                     <option value="primal">Primal</option>
                     <option value="low fodmap">Low FODMAP</option>
-                    <option value="whole 30">Whole30</option>
+                    <option value="whole 30">Whole 30</option>
                     <option value="dairy free">Dairy Free</option>
             </select>
             <select>
