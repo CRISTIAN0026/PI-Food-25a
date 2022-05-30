@@ -31,7 +31,10 @@ export const getRecipesByName = (payload) => {
     return async (dispatch) => {
         try {
             var response = await axios(`http://localhost:3001/recipes?name=${payload}`);
-            return dispatch({type: SEARCH_RECIPE, payload: response.data})
+            return dispatch({
+                type: SEARCH_RECIPE, 
+                payload: response.data
+            });
         } catch {
             return alert ('Recipe Not Found')
         }

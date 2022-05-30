@@ -5,7 +5,7 @@ import { getRecipes, dietTypeFilter, orderAlphabetically, sortByHealthy } from '
 import {Link} from 'react-router-dom';
 import Card from './Card';
 import Paginated from './Paginated';
-
+import SearchBar from './SearchBar';
 
 export default function Home() {
     
@@ -88,6 +88,7 @@ export default function Home() {
             allRecipes={allRecipes.length}
             paginated={paginated}
             />
+            <SearchBar/>
                 {
                 currentRecipes?.map(e => {
                     return(

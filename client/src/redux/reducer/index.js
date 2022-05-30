@@ -32,7 +32,7 @@ const rootReducer = (state = initialState, action) => {
         case GET_DIET_TYPES:
             return{
                 ...state,
-                dietsTypes: action.payload
+                diets: action.payload
             }
         case ADD_RECIPE:
             return{
