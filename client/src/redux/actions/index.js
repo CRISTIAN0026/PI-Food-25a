@@ -45,7 +45,7 @@ export const getDietTypes = () => {
     return async (dispatch) => {
         try{
             var response = await axios('http://localhost:3001/types');
-            return dispatch({type: GET_DIET_TYPES, payload: response.data.map(d => d.name)});
+            return dispatch({type: GET_DIET_TYPES, payload: response.data});
         } catch (error) {
             return error
         }

@@ -52,13 +52,13 @@ export default function CreateRecipe () {
                     />
                 </div>
                 <div>
-                <label>Diet Types:</label>
                 <select>
-                    {diets.map((d) => {
-                        <option value={d}>{d}</option>
-                    })}
+                    {diets.map((d) => (
+                        <option value={d.name}>{d.name}</option>
+                    ))}
                 </select>
                 </div>
+                <button type="submit">Create recipe</button>
             </form>
         </div>
     )

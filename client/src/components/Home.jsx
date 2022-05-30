@@ -92,9 +92,7 @@ export default function Home() {
                 {
                 currentRecipes?.map(e => {
                     return(
-                    <Link>
-                        <Card name={e.name} image={e.image ? e.image : <img src='../../../cooking.png'/>} diets={e.diets} key={e.id}/>
-                    </Link>
+                    <Card name={e.name} image={e.image} diets={e.diets} key={e.id}/>
                 )
             })
         }
