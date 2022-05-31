@@ -19,7 +19,7 @@ export default function CreateRecipe () {
 
     useEffect(() => {
         dispatch(getDietTypes())
-    },[])
+    },[dispatch])
 
     function handleChange(e) {
         setInput({
@@ -53,7 +53,7 @@ export default function CreateRecipe () {
         <div>
             <Link to='/home'><button>Return Home</button></Link>
             <h1>Create your recipe</h1>
-            <form onSubmit={e => handleSubmit(e)}>
+            <form onSubmit={e => handleSubmit(e)} >
                 <div>
                     <label >Name</label>
                     <input 
@@ -89,7 +89,7 @@ export default function CreateRecipe () {
                         <option value={d.name}>{d.name}</option>
                     ))}
                 </select>
-                <ul><li>{input.diets.map(e => e + " ,")}</li></ul>
+                <ul><li key={input.diets}>{input.diets.map(e => e + " ,")}</li></ul>
                 </div>
                 <button type="submit">Create recipe</button>
             </form>
