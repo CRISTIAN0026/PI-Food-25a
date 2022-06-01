@@ -1,11 +1,12 @@
 import React from 'react';
+//import { Link } from 'react-router-dom';
 
 
 export default function Paginated({recipeForPage, allRecipes, paginated}){
     const pageNumbers = []
 
-    for (let i = 0; i <=Math.ceil(allRecipes/recipeForPage); i++) {
-        pageNumbers.push(i + 1)
+    for (let i = 1; i <=Math.ceil(allRecipes/recipeForPage); i++) {
+        pageNumbers.push(i )
     }
 
     return(
@@ -14,7 +15,7 @@ export default function Paginated({recipeForPage, allRecipes, paginated}){
                 {pageNumbers &&
                     pageNumbers.map(n => ( 
                         <li key={n}>
-                            <a onClick={() => paginated(n)} >{n}</a>
+                            <button onClick={() => paginated(n)} >{n}</button>
                         </li>
                     ))
                 }

@@ -7,10 +7,13 @@ import {addRecipe, getDietTypes} from '../redux/actions';
 function validate(input) {
     const errors = {};
     if (!input.name) errors.name = 'Please complete with a recipe name';
-    if (!input.summary) errors.summary = 'Please add some comments about your recipe';
-    if (input.healthScore < 1 || input.healthScore > 100) errors.healthScore = 'The score must be a number between 1 and 100';
+    // if (!input.summary) errors.summary = 'Please add some comments about your recipe';
+    // if (input.healthScore < 1 || input.healthScore > 100) errors.healthScore = 'The score must be a number between 1 and 100';
+    // if (!input.steps.length) errors.steps = 'Please detail the steps for your recipe';
+    // if (!input.diets.length) errors.diets = 'You must select at least one diet type';
     return errors;
 };
+
 
 export default function CreateRecipe () {
     const dispatch = useDispatch()
@@ -23,7 +26,6 @@ export default function CreateRecipe () {
         name: '',
         summary: '',
         healthScore: '',
-        image: '',
         steps: '',
         diets: []
     })
@@ -51,19 +53,21 @@ export default function CreateRecipe () {
     }
     function handleSubmit(e) {
         e.preventDefault()
-        if(errors) return alert("Missing required fields!")
+        console.log(errors.name)
+        if(errors.name || errors.summary || errors.healthScore || errors.steps || errors.diets) return alert("Missing required fields!")
         dispatch(addRecipe(input))
         alert("Recipe Created")
         setInput({
         name: '',
         summary: '',
         healthScore: '',
-        image: '',
         steps: '',
         diets: []
         })
         nav("/home", { replace : true });
     }
+
+ 
 
     function handleDelete(e) {
         setInput({
@@ -71,8 +75,7 @@ export default function CreateRecipe () {
             diets: input.diets.filter(d => d !== e)
         })
     }
-
-    return (
+return (
         <div>
             <Link to='/home'><button>Return Home</button></Link>
             <h1>Create your recipe</h1>
@@ -85,42 +88,39 @@ export default function CreateRecipe () {
                     name='name' 
                     onChange={e => handleChange(e)}/>
                     {errors.name && (
-                                <p>{errors.name}</p>
+                        <p>{errors.name}</p>
                     )}
                 </div>
                 <div>
                     <label>Summary</label>
                     <textarea name="summary" cols="30" rows="3" value={input.summary} onChange={e => handleChange(e)}/>
                     {errors.summary && (
-                                <p>{errors.summary}</p>
+                        <p>{errors.summary}</p>
                     )}
                 </div>
                 <div>
                     <label>Health Score</label>
                     <input type="number" name="healthScore" value={input.healthScore} onChange={e => handleChange(e)}/>
                     {errors.healthScore && (
-                                <p>{errors.healthScore}</p>
+                        <p>{errors.healthScore}</p>
                     )}
                 </div>
                 <div>
                     <label>Steps</label>
                     <textarea name="steps"  cols="40" rows="4" value={input.steps} onChange={e =>handleChange(e)}></textarea>
+                    {errors.steps && (
+                        <p>{errors.steps}</p>
+                    )}
                 </div>
                 <div>
-                    <label>image</label>
-                    <input 
-                    type="text"
-                    value={input.image} 
-                    name='image'
-                    onChange={e => handleChange(e)}
-                    />
-                </div>
-                <div>
-                <select onChange={e => handleSelect(e)}>
+                <select onChange={e => handleSelect(e)} >
                     {diets.map((d) => (
-                        <option key={d.id} value={d.name}>{d.name}</option>
+                        <option value={d.name}>{d.name}</option>
                     ))}
                 </select>
+                {errors.diets && (
+                        <p>{errors.diets}</p>
+                    )}
                 </div>
                 <button type="submit">Create recipe</button>
             </form>

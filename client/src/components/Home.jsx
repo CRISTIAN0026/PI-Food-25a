@@ -7,6 +7,8 @@ import Card from './Card';
 import Paginated from './Paginated';
 import SearchBar from './SearchBar';
 
+let prevId = 1
+
 export default function Home() {
     
     const dispatch = useDispatch();
@@ -52,7 +54,7 @@ export default function Home() {
         setOrder(`Order ${e.target.value}`);
     }
 
-
+    
     return(
         <div>
         <Link to='/recipe'>Create Recipe</Link>
@@ -89,13 +91,19 @@ export default function Home() {
             paginated={paginated}
             />
             <SearchBar/>
+            <div>
                 {
                 currentRecipes?.map(e => {
                     return(
-                    <Card name={e.name} image={e.image} diets={e.diets} key={e.id}/>
+                    <div key={prevId++}> 
+                        <Link to={'/home/' + e.id}>
+                    <Card name={e.name} image={e.image ? e.image :'https://images.unsplash.com/photo-1635321593217-40050ad13c74?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1748&q=80'} diets={e.diets} key={e.id}/>
+                    </Link>
+                    </div>
                 )
             })
         }
+        </div>
         </div>
         </div>
     )
