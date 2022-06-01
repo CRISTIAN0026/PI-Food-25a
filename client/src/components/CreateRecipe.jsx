@@ -51,7 +51,7 @@ export default function CreateRecipe () {
     }
     function handleSubmit(e) {
         e.preventDefault()
-        if(errors) return alert("name, summary, healthScore are required fields!")
+        if(errors) return alert("Missing required fields!")
         dispatch(addRecipe(input))
         alert("Recipe Created")
         setInput({
