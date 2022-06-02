@@ -6,7 +6,7 @@ import { useParams } from 'react-router-dom';
 
 
 let ids = 1
-let idss = 100
+
 export default function Details() {
     const dispatch = useDispatch()
     const {id} = useParams()
@@ -30,9 +30,7 @@ export default function Details() {
                 }
                 <h3>{myRecipe[0].healthScore}</h3>
                 <h5>{myRecipe[0].summary}</h5>
-                {
-                myRecipe[0].diets ?  myRecipe[0].diets?.map(d => (<b key={idss++}>{d}</b>)) : myRecipe[0].Diets.map(d =>(<b>{d.name}</b>))
-                }
+                <h4>{myRecipe[0].diets ?  myRecipe[0].diets + ' ' : myRecipe[0].Diets.map(d =>d.name + (' '))}</h4>
                 
             </div>
             : <p>Loading...</p>

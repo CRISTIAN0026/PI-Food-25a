@@ -14,7 +14,7 @@ function validate(input) {
     return errors;
 };
 
-
+let ide =500
 export default function CreateRecipe () {
     const dispatch = useDispatch()
     const nav = useNavigate()
@@ -101,9 +101,9 @@ return (
                     )}
                 </div>
                 {input.diets.map(e => 
-            <div>
-                <p key={e}>{e}</p>
-                <button onClick={() => handleDelete(e)}>x</button>
+            <div key={ide++}>
+                <p >{e}</p>
+                <button  onClick={() => handleDelete(e)}>x</button>
             </div>)
             }
                 <div>
