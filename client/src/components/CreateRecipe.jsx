@@ -10,7 +10,7 @@ function validate(input) {
     if (!input.summary) errors.summary = 'please add some comments about your recipe';
     if (input.healthScore < 1 || input.healthScore > 100) errors.healthScore = 'please the healthy diet score';
     if (!input.steps) errors.steps = 'Please detail the steps for your recipe';
-    if(input.diet.length < 1) errors.diet = "you have to add at least one diet"
+    if(input.diets.length < 1) errors.diets = "you have to add at least one diet"
     return errors;
 };
 
@@ -18,7 +18,7 @@ function validate(input) {
 export default function CreateRecipe () {
     const dispatch = useDispatch()
     const nav = useNavigate()
-    const diets = useSelector(state => state.diets)
+    const dieta = useSelector(state => state.diets)
 
     const [errors, setErrors] = useState({})
 
@@ -27,12 +27,12 @@ export default function CreateRecipe () {
         summary: '',
         healthScore: '',
         steps: '',
-        diet: []
+        diets: []
     })
 
     useEffect(() => {
         dispatch(getDietTypes())
-    },[])
+    },[dispatch])
 
     function handleChange(e) {
         setInput({
@@ -48,14 +48,14 @@ export default function CreateRecipe () {
     function handleSelect(e) {
         setInput({
             ...input,
-            diet: [...input.diet, e.target.value]
+            diets: [...input.diets, e.target.value]
         })
         console.log(input)
     }
     function handleSubmit(e) {
         e.preventDefault()
-        console.log(errors)
-        if(errors.name || errors.summary || errors.healthScore || errors.steps || errors.diet || (input.name === '')) return alert("Missing required fields!")
+        console.log(input)
+        if(errors.name || errors.summary || errors.healthScore || errors.steps || errors.diets || (input.name === '')) return alert("Missing required fields!")
         dispatch(addRecipe(input))
         alert("Recipe Created")
         setInput({
@@ -63,7 +63,7 @@ export default function CreateRecipe () {
         summary: '',
         healthScore: '',
         steps: '',
-        diet: []
+        diets: []
         })
         nav("/home", { replace : true });
     }
@@ -73,7 +73,7 @@ export default function CreateRecipe () {
     function handleDelete(e) {
         setInput({
             ...input,
-            diet: input.diet.filter(d => d !== e)
+            diets: input.diets.filter(d => d !== e)
         })
     }
 return (
@@ -115,17 +115,17 @@ return (
                 </div>
                 <div>
                 <select onChange={e => handleSelect(e)} >
-                    {diets.map((d) => (
+                    {dieta.map((d) => (
                         <option key={d.id} value={d.name}>{d.name }</option>
                     ))}
                 </select>
-                {errors.diet && (
-                        <p>{errors.diet}</p>
+                {errors.diets && (
+                        <p>{errors.diets}</p>
                     )}
                 </div>
                 <button type="submit">Create recipe</button>
             </form>
-            {input.diet.map(e => 
+            {input.diets.map(e => 
             <div>
                 <p key={e}>{e}</p>
                 <button onClick={() => handleDelete(e)}>x</button>

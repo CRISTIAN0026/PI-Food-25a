@@ -5,13 +5,14 @@ const router = Router();
 
 router.post('/', async (req, res, next) => {
     try {
-        const { name, summary, healthScore, steps, diets } = req.body
+        let { name, summary, healthScore, steps, diets, createInDb } = req.body
         if(name && summary && healthScore){
-            const newRecipe = await Recipes.create({
+            let newRecipe = await Recipes.create({
                 name,
                 summary,
                 healthScore,
                 steps,
+                createInDb
             })
             let dietDb = await Diets.findAll({
                 where: {name: diets}

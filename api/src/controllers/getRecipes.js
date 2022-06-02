@@ -3,7 +3,7 @@ const { Recipes, Diets} = require('../db')
 
 const getApiInfo = async () =>{
     try {
-        let recipes = (await axios(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.YOUR_API_KEY4}&addRecipeInformation=true&number=100`)).data.results
+        let recipes = (await axios(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.YOUR_API_KEY1}&addRecipeInformation=true&number=100`)).data.results
         
     const apiInfo = await recipes.map(e => {
         return {
@@ -29,7 +29,7 @@ const getApiInfo = async () =>{
 
 const getDbInfo = async () => {
     try {
-        let getInfo = await Recipes.findAll({
+        return await Recipes.findAll({
             include: {
                 model: Diets,
                 attributes: ['name'],
@@ -38,7 +38,6 @@ const getDbInfo = async () => {
                 }
             }
         });
-        return getInfo
     } catch (error) {
         return error
     }
