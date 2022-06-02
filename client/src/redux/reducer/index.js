@@ -46,10 +46,12 @@ const rootReducer = (state = initialState, action) => {
             }
         case DIET_TYPE_FILTER:
             const allRecipes = state.allRecipes;        
-            const filteredByDietType = allRecipes.filter(r => r.diets?.some(d => d.toLowerCase() === action.payload.toLowerCase()))           
+            const filteredByDietType = allRecipes.filter(r => r.diets?.some(d => d.toLowerCase() === action.payload.toLowerCase()))
+            let typeDi = allRecipes.filter(r => r.Diets?.some(d => d.name.toLowerCase() === action.payload.toLowerCase()))
+            let jefe = filteredByDietType.concat(typeDi)    
             return {
-            ...state,
-            recipes: filteredByDietType
+                    ...state,
+                    recipes: jefe
             };
         case ALPHABETICALLY_SORT: 
         let sortedRecipes = [...state.recipes]       

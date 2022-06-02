@@ -8,7 +8,7 @@ function validate(input) {
     const errors = {};
     if (!input.name) errors.name = 'please complete with a recipe name';
     if (!input.summary) errors.summary = 'please add some comments about your recipe';
-    if (input.healthScore < 1 || input.healthScore > 100) errors.healthScore = 'please the healthy diet score';
+    if (input.healthScore < 1 || input.healthScore > 100) errors.healthScore = 'please rate the healthy diet between 1 and 100';
     if (!input.steps) errors.steps = 'Please detail the steps for your recipe';
     if(input.diets.length < 1) errors.diets = "you have to add at least one diet"
     return errors;
@@ -50,11 +50,9 @@ export default function CreateRecipe () {
             ...input,
             diets: [...input.diets, e.target.value]
         })
-        console.log(input)
     }
     function handleSubmit(e) {
         e.preventDefault()
-        console.log(input)
         if(errors.name || errors.summary || errors.healthScore || errors.steps || errors.diets || (input.name === '')) return alert("Missing required fields!")
         dispatch(addRecipe(input))
         alert("Recipe Created")
@@ -93,6 +91,22 @@ return (
                     )}
                 </div>
                 <div>
+                <select onChange={e => handleSelect(e)} >
+                    {dieta.map((d) => (
+                        <option key={d.id} value={d.name}>{d.name }</option>
+                    ))}
+                </select>
+                {errors.diets && (
+                        <p>{errors.diets}</p>
+                    )}
+                </div>
+                {input.diets.map(e => 
+            <div>
+                <p key={e}>{e}</p>
+                <button onClick={() => handleDelete(e)}>x</button>
+            </div>)
+            }
+                <div>
                     <label>Summary</label>
                     <textarea name="summary" cols="30" rows="3" value={input.summary} onChange={e => handleChange(e)}/>
                     {errors.summary && (
@@ -113,24 +127,9 @@ return (
                         <p>{errors.steps}</p>
                     )}
                 </div>
-                <div>
-                <select onChange={e => handleSelect(e)} >
-                    {dieta.map((d) => (
-                        <option key={d.id} value={d.name}>{d.name }</option>
-                    ))}
-                </select>
-                {errors.diets && (
-                        <p>{errors.diets}</p>
-                    )}
-                </div>
                 <button type="submit">Create recipe</button>
             </form>
-            {input.diets.map(e => 
-            <div>
-                <p key={e}>{e}</p>
-                <button onClick={() => handleDelete(e)}>x</button>
-            </div>)
-            }
+            
         </div>
     )
 }
