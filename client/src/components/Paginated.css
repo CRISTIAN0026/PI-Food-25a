@@ -1,0 +1,17 @@
+.Paginated{
+    justify-content: space-evenly;
+}
+
+.das{
+    font-size: 20px;
+    cursor: pointer;
+    margin-top: 50px;
+    margin-left: 25px;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+.das:hover{
+    background-color: blue;
+    color: white;
+}

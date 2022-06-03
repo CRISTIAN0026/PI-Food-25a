@@ -1,0 +1,16 @@
+.cards{
+    display: inline-block;
+}
+
+.card{
+    margin-right: 50px;
+    border: 5px solid black;
+    border-radius: 15px; 
+}
+
+
+
+#h3{
+    display: block;
+    text-align: center;
+}

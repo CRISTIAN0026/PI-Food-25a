@@ -7,6 +7,7 @@ import Card from './Card';
 import Paginated from './Paginated';
 import SearchBar from './SearchBar';
 import './Home.css'
+import './Card.css'
 
 let prevId = 1
 
@@ -86,23 +87,23 @@ export default function Home() {
                 <option value='az'>Sort ascending</option>
                 <option value='za'>Sort descending</option>
             </select>
-            <select onChange={e => handleScoreSort(e)} defaultValue='Sort Healthy Score'>
+            <select id='five' onChange={e => handleScoreSort(e)} defaultValue='Sort Healthy Score'>
                     <option value='Sort Healthy Score' disabled>Sort Healthy Score</option>
                     <option value="asc">From Min to Max</option>
                     <option value="desc">From Max to Min</option>
             </select>
             </div>
+            <SearchBar/>
             <Paginated 
             recipeForPage={recipeForPage}
             allRecipes={allRecipes.length}
             paginated={paginated}
-            />
-            <SearchBar/> 
-            <div>
+            /> 
+            <div className='cards'>
                 {
                 currentRecipes?.map(e => {
                     return(
-                    <div key={prevId++}> 
+                    <div key={prevId++} className="card"> 
                         <Link to={'/home/' + e.id}>
                     <Card name={e.name} image={e.image ? e.image :'https://images.unsplash.com/photo-1635321593217-40050ad13c74?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1748&q=80'} diets={e.diets ? e.diets : e.Diets[0].name} key={e.id}/>
                     </Link>

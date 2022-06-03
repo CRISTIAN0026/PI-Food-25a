@@ -14,7 +14,7 @@ export default function Paginated({recipeForPage, allRecipes, paginated}){
         <nav className='Paginated' >
             {pageNumbers &&
                     pageNumbers.map(n => ( 
-                        <button onClick={() => paginated(n)} key={n}>{n}</button>
+                        <button className='das' onClick={() => paginated(n)} key={n}>{n}</button>
                     ))
                 }
         </nav>

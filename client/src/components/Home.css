@@ -30,6 +30,9 @@
     font-family:Verdana, Geneva, Tahoma, sans-serif;
     transition: color 0.5s, background 0.5s;
 }
+#dos:hover{
+    background-color: green;
+}
 
 #tres{
     position: relative;
@@ -41,7 +44,6 @@
     font-weight: 700;
     cursor: pointer;
     font-family:Verdana, Geneva, Tahoma, sans-serif;
-    transition: color 0.5s, background 0.5s;
 }
 
 #four{
@@ -54,5 +56,17 @@
     font-weight: 700;
     cursor: pointer;
     font-family:Verdana, Geneva, Tahoma, sans-serif;
-    transition: color 0.5s, background 0.5s;
 }
+
+#five{
+    position: relative;
+    display: inline-block;
+    font-size: 20px;
+    border: 2px solid black;
+    border-radius: 15px;
+    padding: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+
