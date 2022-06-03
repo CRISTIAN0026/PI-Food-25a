@@ -61,8 +61,9 @@ export default function Home() {
         <h1>Cooking Recipes</h1>
         <button onClick={e =>{handleClick(e)}}>Return all recipes</button>
         <div>
-        <select onChange={e => handleFilterDiets(e)}>
-                    <option value="gluten free">Gluten Free</option>
+        <select onChange={e => handleFilterDiets(e)} defaultValue='Select a diet'>
+            <option value='Select a diet' disabled >Select a diet</option>
+                    <option value="gluten free">Gluten Free</option> 
                     <option value="ketogenic">Ketogenic</option>
                     <option value="vegetarian">Vegetarian</option>
                     <option value="lacto vegetarian">Lacto-Vegetarian</option>
@@ -76,12 +77,13 @@ export default function Home() {
                     <option value="whole 30">Whole 30</option>
                     <option value="dairy free">Dairy Free</option>
             </select>
-            <select onChange={e => handleAlphabeticalSort(e)}>
+            <select onChange={e => handleAlphabeticalSort(e)} defaultValue='A Z'>
+            <option value='A Z' disabled>A Z</option>
                 <option value='az'>Sort ascending</option>
                 <option value='za'>Sort descending</option>
             </select>
-            <select onChange={e => handleScoreSort(e)}>
-                    <option>Health Score</option>
+            <select onChange={e => handleScoreSort(e)} defaultValue='Sort Healthy Score'>
+                    <option value='Sort Healthy Score' disabled>Sort Healthy Score</option>
                     <option value="asc">From Min to Max</option>
                     <option value="desc">From Max to Min</option>
             </select>
