@@ -3,22 +3,27 @@
     flex-direction: column;
     align-items: center;
     margin-top: 180px;
-    border: 5px solid rgb(49, 42, 42);
-    border-radius: 30px;
 }
 
 .button{
     position: relative;
     display: inline-block;
-    font-size: 45px;
-    border: 3px solid gray;
-    border-radius: 30px;
+    font-size: 25px;
+    border: 5px solid white;
+    border-radius: 15px;
     padding: 13px;
     font-weight: 700;
     cursor: pointer;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    transition: color 0.5s, background 0.5s;
+}
+.button:hover{
+    background-color: transparent;
+    color: white;
 }
 .h1{
+    background-color: white;
+    border: 5px solid rgb(3, 3, 3);
     font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; 
     font-size: 60px;
 }
