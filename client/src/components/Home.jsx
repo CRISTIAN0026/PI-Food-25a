@@ -6,6 +6,7 @@ import {Link} from 'react-router-dom';
 import Card from './Card';
 import Paginated from './Paginated';
 import SearchBar from './SearchBar';
+import './Home.css'
 
 let prevId = 1
 
@@ -56,12 +57,15 @@ export default function Home() {
 
     
     return(
-        <div>
-        <Link to='/recipe'>Create Recipe</Link>
-        <h1>Cooking Recipes</h1>
-        <button onClick={e =>{handleClick(e)}}>Return all recipes</button>
-        <div>
-        <select onChange={e => handleFilterDiets(e)} defaultValue='Select a diet'>
+
+        <div className='Home'>
+        <h1 id='h1'>Cooking Recipes</h1>
+        <div className='all'>
+        <div id='return'>    
+        <button onClick={e =>{handleClick(e)}} id='uno'>Return all recipes</button>
+        </div>
+        <Link to='/recipe'><button id='dos'>Create Recipe</button></Link> 
+        <select onChange={e => handleFilterDiets(e)} defaultValue='Select a diet' id='tres'>
             <option value='Select a diet' disabled >Select a diet</option>
                     <option value="gluten free">Gluten Free</option> 
                     <option value="ketogenic">Ketogenic</option>
@@ -77,7 +81,7 @@ export default function Home() {
                     <option value="whole 30">Whole 30</option>
                     <option value="dairy free">Dairy Free</option>
             </select>
-            <select onChange={e => handleAlphabeticalSort(e)} defaultValue='A Z'>
+            <select id='four' onChange={e => handleAlphabeticalSort(e)} defaultValue='A Z'>
             <option value='A Z' disabled>A Z</option>
                 <option value='az'>Sort ascending</option>
                 <option value='za'>Sort descending</option>
@@ -87,12 +91,13 @@ export default function Home() {
                     <option value="asc">From Min to Max</option>
                     <option value="desc">From Max to Min</option>
             </select>
+            </div>
             <Paginated 
             recipeForPage={recipeForPage}
             allRecipes={allRecipes.length}
             paginated={paginated}
             />
-            <SearchBar/>
+            <SearchBar/> 
             <div>
                 {
                 currentRecipes?.map(e => {
@@ -105,7 +110,6 @@ export default function Home() {
                 )
             })
         }
-        </div>
         </div>
         </div>
     )

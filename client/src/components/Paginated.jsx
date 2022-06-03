@@ -1,5 +1,6 @@
 import React from 'react';
 //import { Link } from 'react-router-dom';
+import './Paginated.css'
 
 
 export default function Paginated({recipeForPage, allRecipes, paginated}){
@@ -10,16 +11,12 @@ export default function Paginated({recipeForPage, allRecipes, paginated}){
     }
 
     return(
-        <nav >
-            <ul>
-                {pageNumbers &&
+        <nav className='Paginated' >
+            {pageNumbers &&
                     pageNumbers.map(n => ( 
-                        <li key={n}>
-                            <button onClick={() => paginated(n)} >{n}</button>
-                        </li>
+                        <button onClick={() => paginated(n)} key={n}>{n}</button>
                     ))
                 }
-            </ul>
         </nav>
     )
 }

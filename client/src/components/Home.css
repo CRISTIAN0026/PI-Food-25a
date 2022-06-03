@@ -1,0 +1,58 @@
+#h1{
+    font-size: 50px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.all{
+    display: flex;
+    justify-content: space-around;
+}
+#uno{
+    position: relative;
+    display: inline-block;
+    font-size: 20px;
+    border-radius: 15px;
+    padding: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    transition: color 0.5s, background 0.5s;
+}
+
+#dos{
+    position: relative;
+    display: inline-block;
+    font-size: 20px;
+    border-radius: 15px;
+    padding: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    transition: color 0.5s, background 0.5s;
+}
+
+#tres{
+    position: relative;
+    display: inline-block;
+    font-size: 20px;
+    border: 2px solid black;
+    border-radius: 15px;
+    padding: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    transition: color 0.5s, background 0.5s;
+}
+
+#four{
+    position: relative;
+    display: inline-block;
+    font-size: 20px;
+    border: 2px solid black;
+    border-radius: 15px;
+    padding: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    transition: color 0.5s, background 0.5s;
+}
