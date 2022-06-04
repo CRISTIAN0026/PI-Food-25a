@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector, } from 'react-redux';
 import {addRecipe, getDietTypes} from '../redux/actions';
-
+import './CreateRecipe.css'
 
 function validate(input) {
     const errors = {};
@@ -75,11 +75,11 @@ export default function CreateRecipe () {
         })
     }
 return (
-        <div>
-            <Link to='/home'><button>Return Home</button></Link>
+        <div className="recipe">
             <h1>Create your recipe</h1>
+            <div id="form">
             <form onSubmit={e => handleSubmit(e)} >
-                <div>
+                <div className="name">
                     <label >Name</label>
                     <input 
                     type="text"
@@ -90,7 +90,7 @@ return (
                         <p>{errors.name}</p>
                     )}
                 </div>
-                <div>
+                <div id="select">
                 <select onChange={e => handleSelect(e)} >
                     {dieta.map((d) => (
                         <option key={d.id} value={d.name}>{d.name }</option>
@@ -101,34 +101,35 @@ return (
                     )}
                 </div>
                 {input.diets.map(e => 
-            <div key={ide++}>
+            <div key={ide++} className="name">
                 <p >{e}</p>
                 <button  onClick={() => handleDelete(e)}>x</button>
             </div>)
             }
-                <div>
+                <div className="name">
                     <label>Summary</label>
                     <textarea name="summary" cols="30" rows="3" value={input.summary} onChange={e => handleChange(e)}/>
                     {errors.summary && (
                         <p>{errors.summary}</p>
                     )}
                 </div>
-                <div>
+                <div className="name">
                     <label>Health Score</label>
                     <input type="number" name="healthScore" value={input.healthScore} onChange={e => handleChange(e)}/>
                     {errors.healthScore && (
                         <p>{errors.healthScore}</p>
                     )}
                 </div>
-                <div>
+                <div className="name1">
                     <label>Steps</label>
                     <textarea name="steps"  cols="40" rows="4" value={input.steps} onChange={e =>handleChange(e)}></textarea>
                     {errors.steps && (
                         <p>{errors.steps}</p>
                     )}
                 </div>
-                <button type="submit">Create recipe</button>
+                <button type="submit" className="btn">Create recipe</button> <Link to='/home'><button className="btn1">Return Home</button></Link>
             </form>
+            </div>
             
         </div>
     )

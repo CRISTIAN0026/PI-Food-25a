@@ -1,0 +1,51 @@
+
+.details{
+    
+    flex-wrap: wrap;
+    border: 10px solid black;
+    border-radius: 1px;
+    padding: 40px;
+    background-color: yellow; 
+
+}
+
+#recipes1{
+    position: relative;
+    display: inline-block;
+    font-size: 20px;
+    border: 2px solid black;
+    border-radius: 15px;
+    padding: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    transition: color 0.5s, background 0.5s;
+    background-color: rgb(22, 170, 150);
+    color: white;
+}
+#recipes1:hover{
+    background-color: rgb(20, 111, 117);
+}
+
+#steps{
+    display: grid;
+    text-align: center;
+    border: 3px solid red;
+    border-radius: 10px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+#diets{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 15px;
+}
+
+.par{
+    display: flex;
+    flex-direction: row;
+}
+
+#sum{
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+}

@@ -1,0 +1,29 @@
+.btn{
+    position: relative;
+    display: inline-block;
+    font-size: 20px;
+    border-radius: 15px;
+    padding: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    transition: color 0.5s, background 0.5s;
+}
+.btn:hover{
+    background-color: red;
+}
+
+.btn1{
+    position: relative;
+    display: inline-block;
+    font-size: 20px;
+    border-radius: 15px;
+    padding: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    transition: color 0.5s, background 0.5s;
+}
+.btn1:hover{
+    background-color: green;
+}

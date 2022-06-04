@@ -1,6 +1,10 @@
 #h1{
+    display: inline-flex;
     font-size: 50px;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    border: 2px solid black;
+    border-radius: 15px;
+    background-color: brown;
 }
 
 .all{
@@ -71,5 +75,8 @@
 }
 
 .Home{
-    background-color: gold;
+    border: 1px solid black;
+    background-image: url('../img/background4.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
 }
