@@ -1,6 +1,6 @@
-.btn{
+.btn01{
+    margin-top: 50px;
     position: relative;
-    display: inline-block;
     font-size: 20px;
     border-radius: 15px;
     padding: 13px;
@@ -9,11 +9,12 @@
     font-family:Verdana, Geneva, Tahoma, sans-serif;
     transition: color 0.5s, background 0.5s;
 }
-.btn:hover{
+.btn01:hover{
     background-color: red;
 }
 
 .btn1{
+    margin-top: 50px;
     position: relative;
     display: inline-block;
     font-size: 20px;
@@ -27,3 +28,171 @@
 .btn1:hover{
     background-color: green;
 }
+
+#form{
+    display: inline-flex;
+    /* justify-content: space-around; */
+    flex-wrap: wrap;
+    flex-direction: column;
+    border: 2px solid black;
+    border-radius: 10px;
+    width: 700px;
+    height: 500px;
+    padding: 10px;
+    margin-left: 100px;
+}
+
+#n{
+    display: flex;
+    margin-top: 20px;
+    margin-left: 20px;
+}
+#n1{
+    /* font-size: 30px; */
+    border: 1px solid black;
+    border-radius: 5px;
+    width: 383px;
+    height: 30px;
+    margin: 0px 20px 20px;
+}
+
+#nam{
+    margin-left: 25px;
+}
+
+#n2{
+    
+    justify-content: center;
+    font-size: 13px;
+}
+
+#suma{
+    display: flex;
+    margin-left: 20px;
+}
+
+#sum1{
+    border: 1px solid black;
+    border-radius: 5px;
+    margin: 0px 20px 20px;
+}
+#sum2{
+    justify-content: center;
+    font-size: 13px;
+    margin-left: 5px;
+}
+
+.health{
+    display: flex;
+    margin-left: 10px;
+}
+
+#health1{
+    border: 1px solid black;
+    border-radius: 5px;
+    margin: 0px 8px 0px;
+    width: 383px;
+    height: 30px;
+}
+
+#health2{
+    justify-content: center;
+    font-size: 13px;
+}
+
+.ste{
+    margin-top: 30px;
+    display: flex;
+    margin-left: 40px;
+}
+
+#ste1{
+    margin-left: 30px;
+    width: 383px;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+#ste2{
+    justify-content: center;
+    font-size: 13px;
+    margin-left: 20px;
+}
+
+#re{
+    
+    display: flex;
+    justify-content: space-around;
+}
+
+#re1{
+    margin-left: 0px;
+}
+
+#select15{
+    display: flex;
+    margin-left: 30px;
+
+    width: 100px;
+    height: 20px;
+}
+#dsa{
+    display: inline-flex;
+    width: 400px;
+    height: 40px;
+    font-size: 13px;
+}
+
+#gt{
+    display: flex;
+    margin-left: 40px;
+}
+
+#hy{
+    display: flex;
+    margin-left: 20px;
+}
+
+#our{
+    display: flex;
+    justify-content: space-around;
+}
+
+#lo{
+    display: flex;
+    flex-wrap: wrap;
+    width: 300px;
+    height: 300px;
+    border: 2px solid black;
+    border-radius: 15px;
+}
+
+#gtd{
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 10px;
+    width: 1px;
+    height: 15px;
+    margin-left: 0px;
+    background-color: blueviolet;
+    border: 2px solid black;
+    border-radius: 10px;
+}
+#gtd:hover{
+    background-color: crimson;
+}
+
+#gtd1{
+    font-size: 10px;
+}
+
+.nlso{
+    display: flex;
+    
+    width: 80px;
+    height: 50px;
+    margin-left: 10px;
+    border: 2px solid black;
+    border-radius: 5px;
+}
+

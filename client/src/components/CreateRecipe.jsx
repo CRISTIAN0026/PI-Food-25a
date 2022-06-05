@@ -6,15 +6,19 @@ import './CreateRecipe.css'
 
 function validate(input) {
     const errors = {};
-    if (!input.name) errors.name = 'please complete with a recipe name';
-    if (!input.summary) errors.summary = 'please add some comments about your recipe';
-    if (input.healthScore < 1 || input.healthScore > 100) errors.healthScore = 'please rate the healthy diet between 1 and 100';
-    if (!input.steps) errors.steps = 'Please detail the steps for your recipe';
-    if(input.diets.length < 1) errors.diets = "you have to add at least one diet"
+    if (input.name.length < 2 ) errors.name = 'Add recipe name';
+    if (input.summary.length < 2) errors.summary = 'Add recipe summary';
+    if (input.healthScore < 1 || input.healthScore > 100) errors.healthScore = 'Add healthy score';
+    if (input.steps.length < 2) errors.steps = 'Add important steps';
+    if(input.diets.length < 1){
+        errors.diets = "Add at least one diet"
+    }else if(input.diets.length > 13) {
+        errors.diets = "Diet limit reached"
+    }
     return errors;
 };
 
-let ide =500
+let ide = 151
 export default function CreateRecipe () {
     const dispatch = useDispatch()
     const nav = useNavigate()
@@ -77,58 +81,106 @@ export default function CreateRecipe () {
 return (
         <div className="recipe">
             <h1>Create your recipe</h1>
-            <div id="form">
-            <form onSubmit={e => handleSubmit(e)} >
-                <div className="name">
-                    <label >Name</label>
-                    <input 
-                    type="text"
-                    value={input.name}
-                    name='name' 
-                    onChange={e => handleChange(e)}/>
-                    {errors.name && (
-                        <p>{errors.name}</p>
-                    )}
-                </div>
-                <div id="select">
+            <div id="our">
+            <form onSubmit={e => handleSubmit(e)} id="form">
+            <div id="select15">
+                    <div>
                 <select onChange={e => handleSelect(e)} >
                     {dieta.map((d) => (
                         <option key={d.id} value={d.name}>{d.name }</option>
                     ))}
                 </select>
-                {errors.diets && (
-                        <p>{errors.diets}</p>
-                    )}
                 </div>
+            <div id="hy">
+                {errors.diets && (
+                        <p id="dsa">{errors.diets}</p>
+                    )}
+                    </div>
+                </div>
+                <div id="n">
+                    <div id='nam'>
+                    <label >Name</label>
+                    </div>
+                    <div>
+                    <input 
+                    type="text"
+                    value={input.name}
+                    name='name' 
+                    onChange={e => handleChange(e)}
+                    id='n1'
+                    />
+                    </div>
+                    <div  id='n2'>
+                    {errors.name && (
+                        <p>{errors.name}</p>
+                    )}
+                    </div>
+                </div>
+                <div id="suma">
+                    <div>
+                    <label>Summary</label>
+                    </div>
+                    <div>
+                    <textarea id="sum1" name="summary" cols="50" rows="5" value={input.summary} onChange={e => handleChange(e)}/>
+                    </div>
+                    <div id="sum2">
+                    {errors.summary && (
+                        <p >{errors.summary}</p>
+                    )}
+                    </div>
+                </div>
+                <div className="health">
+                    <div>
+                    <label>Health Score</label>
+                    </div>
+                    <div>
+                    <input type="number" id="health1" name="healthScore" value={input.healthScore} onChange={e => handleChange(e)}/>
+                    </div>
+                    <div id="health2">
+                    {errors.healthScore && (
+                        <p >{errors.healthScore}</p>
+                    )}
+                    </div>
+                </div>
+                <div className="ste">
+                    <div>
+                    <label>Steps</label>
+                    </div>
+                    <div>
+                    <textarea name="steps" id="ste1" cols="40" rows="4" value={input.steps} onChange={e =>handleChange(e)}></textarea>
+                    </div>
+                    <div id="ste2">
+                    {errors.steps && (
+                        <p >{errors.steps}</p>
+                    )}
+                    </div>
+                </div>
+                <div id="re">
+                <div >
+                <button type="submit" className="btn01">Create recipe</button>
+                </div>
+                <div id="re1">
+                <Link to='/home'><button className="btn1">Return Home</button></Link>
+                </div>
+                </div>
+            </form>
+            <div>
+
+            </div>
+            <h3>Diets: </h3>
+            <div id="lo">
                 {input.diets.map(e => 
-            <div key={ide++} className="name">
-                <p >{e}</p>
-                <button  onClick={() => handleDelete(e)}>x</button>
+            <div key={ide++} className="nlso">
+                <div>
+                <p id="gtd1">{e}</p>
+                </div>
+                <div>
+                <button id="gtd"  onClick={() => handleDelete(e)}>x</button>
+                </div>
             </div>)
             }
-                <div className="name">
-                    <label>Summary</label>
-                    <textarea name="summary" cols="30" rows="3" value={input.summary} onChange={e => handleChange(e)}/>
-                    {errors.summary && (
-                        <p>{errors.summary}</p>
-                    )}
-                </div>
-                <div className="name">
-                    <label>Health Score</label>
-                    <input type="number" name="healthScore" value={input.healthScore} onChange={e => handleChange(e)}/>
-                    {errors.healthScore && (
-                        <p>{errors.healthScore}</p>
-                    )}
-                </div>
-                <div className="name1">
-                    <label>Steps</label>
-                    <textarea name="steps"  cols="40" rows="4" value={input.steps} onChange={e =>handleChange(e)}></textarea>
-                    {errors.steps && (
-                        <p>{errors.steps}</p>
-                    )}
-                </div>
-                <button type="submit" className="btn">Create recipe</button> <Link to='/home'><button className="btn1">Return Home</button></Link>
-            </form>
+            </div>
+            
             </div>
             
         </div>

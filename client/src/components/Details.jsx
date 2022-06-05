@@ -29,7 +29,7 @@ export default function Details() {
                 <div>
                 <img id='img1'src={myRecipe[0].image ? myRecipe[0].image :'https://images.unsplash.com/photo-1635321593217-40050ad13c74?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1748&q=80'} alt='' width='500px' height='500px'/>
                 <h3 id='h3'>Healthy score: {myRecipe[0].healthScore}</h3>
-                <h5 id='diets'><h3>Diets:</h3> {myRecipe[0].diets ?  myRecipe[0].diets + '  ' : myRecipe[0].Diets.map(d =>d.name + ('  '))}</h5>
+                <h5 id='diets'>Diets: {myRecipe[0].diets ?  myRecipe[0].diets + '  ' : myRecipe[0].Diets.map(d =>d.name + ('  '))}</h5>
                 </div>
                 <div id='steps'>
                     <h3>Steps: </h3>
@@ -38,7 +38,8 @@ export default function Details() {
                 }
                 </div>
                 <div> 
-                <p id='sum'><h3>Summary:</h3> {myRecipe[0].summary}</p>
+                <h3>Summary:</h3>
+                <p id='sum'> {myRecipe[0].summary}</p>
                 </div>
                 
             </div>

@@ -63,11 +63,11 @@ export default function Home() {
         <h1 id='h1'>Cooking Recipes</h1>
         <div className='all'>
         <div id='return'>    
-        <button onClick={e =>{handleClick(e)}} id='uno'>Return all recipes</button>
+        <button onClick={e =>{handleClick(e)}} id='uno'>ALL RECIPES</button>
         </div>
-        <Link to='/recipe'><button id='dos'>Create Recipe</button></Link> 
+        <Link to='/recipe'><button id='dos'>CREATE RECIPE</button></Link> 
         <select onChange={e => handleFilterDiets(e)} defaultValue='Select a diet' id='tres'>
-            <option value='Select a diet' disabled >Select a diet</option>
+            <option value='Select a diet' disabled >SELECT DIET</option>
                     <option value="gluten free">Gluten Free</option> 
                     <option value="ketogenic">Ketogenic</option>
                     <option value="vegetarian">Vegetarian</option>
@@ -88,7 +88,7 @@ export default function Home() {
                 <option value='za'>Sort descending</option>
             </select>
             <select id='five' onChange={e => handleScoreSort(e)} defaultValue='Sort Healthy Score'>
-                    <option value='Sort Healthy Score' disabled>Sort Healthy Score</option>
+                    <option value='Sort Healthy Score' disabled>SORT HEALTHY SCORE</option>
                     <option value="asc">From Min to Max</option>
                     <option value="desc">From Max to Min</option>
             </select>
