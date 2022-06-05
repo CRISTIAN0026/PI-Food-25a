@@ -86,9 +86,8 @@
 
 .Home{
     border: 1px solid black;
-    /* background-image: url('../img/background4.jpg');
+    background-image: url('../img/background4.jpg');
     background-repeat: no-repeat;
-    background-size: cover; */
-    background-color: yellow;
+    background-size: cover;
     padding: 0px 0px 40px;
 }

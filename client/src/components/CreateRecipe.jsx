@@ -57,7 +57,7 @@ export default function CreateRecipe () {
     }
     function handleSubmit(e) {
         e.preventDefault()
-        if(errors.name || errors.summary || errors.healthScore || errors.steps || errors.diets || (input.name === '')) return alert("Missing required fields!")
+        if(errors.name || errors.summary || errors.healthScore || errors.steps || errors.diets || (input.name === '')) return alert("faltan datos")
         dispatch(addRecipe(input))
         alert("Recipe Created")
         setInput({
@@ -80,7 +80,7 @@ export default function CreateRecipe () {
     }
 return (
         <div className="recipe">
-            <h1>Create your recipe</h1>
+            <h1 id='ku'>Create your recipe</h1>
             <div id="our">
             <form onSubmit={e => handleSubmit(e)} id="form">
             <div id="select15">
@@ -167,7 +167,7 @@ return (
             <div>
 
             </div>
-            <h3>Diets: </h3>
+            <h3 id="ik">Diets: </h3>
             <div id="lo">
                 {input.diets.map(e => 
             <div key={ide++} className="nlso">
