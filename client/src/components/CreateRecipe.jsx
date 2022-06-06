@@ -174,7 +174,7 @@ return (
                 <div>
                 <p id="gtd1">{e}</p>
                 </div>
-                <div>
+                <div className="gtdj">
                 <button id="gtd"  onClick={() => handleDelete(e)}>x</button>
                 </div>
             </div>)

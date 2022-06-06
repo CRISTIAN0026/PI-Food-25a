@@ -7,7 +7,7 @@ const router = Router();
 
 router.get('/', async (req, res, next) => {
         const { name } = req.query;
-        let allRecipes = await getAllRecipes()    
+        let allRecipes = await getAllRecipes() 
         try {
             if (name) {
                 let recipeByName = await allRecipes.filter(e => e.name.toLowerCase()
@@ -18,7 +18,7 @@ router.get('/', async (req, res, next) => {
                 }else {
                     res.status(200).send(allRecipes); 
                 }
-        } catch (error) {
+        }catch(error) {
             next(error)
         }
 });

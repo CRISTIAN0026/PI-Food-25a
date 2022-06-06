@@ -1,9 +1,10 @@
 const axios = require('axios')
 const { Recipes, Diets} = require('../db')
 
+
 const getApiInfo = async () =>{
     try {
-        let recipes = (await axios(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.YOUR_API_KEY}&addRecipeInformation=true&number=100`)).data.results
+        let recipes = (await axios(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.YOUR_API_KEY1}&addRecipeInformation=true&number=100`)).data.results 
         
     const apiInfo = await recipes.map(e => {
         return {
@@ -20,6 +21,8 @@ const getApiInfo = async () =>{
             })
         }
     })
+    
+    
     return apiInfo 
     } catch (error) {
     return error
