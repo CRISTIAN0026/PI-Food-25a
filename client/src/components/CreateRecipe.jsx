@@ -93,7 +93,7 @@ return (
                 </div>
             <div id="hy">
                 {errors.diets && (
-                        <p id="dsa">{errors.diets}</p>
+                        <p className="fo" id="dsa">{errors.diets}</p>
                     )}
                     </div>
                 </div>
@@ -112,7 +112,7 @@ return (
                     </div>
                     <div  id='n2'>
                     {errors.name && (
-                        <p>{errors.name}</p>
+                        <p className="fo">{errors.name}</p>
                     )}
                     </div>
                 </div>
@@ -125,7 +125,7 @@ return (
                     </div>
                     <div id="sum2">
                     {errors.summary && (
-                        <p >{errors.summary}</p>
+                        <p className="fo">{errors.summary}</p>
                     )}
                     </div>
                 </div>
@@ -138,7 +138,7 @@ return (
                     </div>
                     <div id="health2">
                     {errors.healthScore && (
-                        <p >{errors.healthScore}</p>
+                        <p className="fo">{errors.healthScore}</p>
                     )}
                     </div>
                 </div>
@@ -151,7 +151,7 @@ return (
                     </div>
                     <div id="ste2">
                     {errors.steps && (
-                        <p >{errors.steps}</p>
+                        <p className="fo">{errors.steps}</p>
                     )}
                     </div>
                 </div>
