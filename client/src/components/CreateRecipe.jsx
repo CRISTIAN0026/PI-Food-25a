@@ -12,7 +12,7 @@ function validate(input) {
     if (input.steps.length < 2) errors.steps = 'Add important steps';
     if(input.diets.length < 1){
         errors.diets = "Add at least one diet"
-    }else if(input.diets.length > 13) {
+    }else if(input.diets.length > 11) {
         errors.diets = "Diet limit reached"
     }
     return errors;
