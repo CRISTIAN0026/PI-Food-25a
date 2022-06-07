@@ -4,7 +4,7 @@
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     border: 2px solid black;
     border-radius: 15px;
-    background-color: brown;
+    background-color: bisque;
 }
 
 .all{
@@ -25,7 +25,7 @@
     height: 50px; */
 }
 #uno:hover{
-    background-color: red;
+    background-color: yellow;
 }
 #dos{
     position: relative;
@@ -86,8 +86,9 @@
 
 .Home{
     border: 1px solid black;
-    background-image: url('../img/background4.jpg');
+    /* background-image: url('../img/background4.jpg');
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: cover; */
     padding: 0px 0px 40px;
+    background-color: rgb(51, 6, 6);
 }

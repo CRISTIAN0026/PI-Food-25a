@@ -2,8 +2,6 @@ const dietTypesDb = [
 "gluten free", 
 "ketogenic", 
 "vegetarian", 
-"lacto vegetarian",
-"ovo vegetarian", 
 "lacto ovo vegetarian", 
 "vegan", 
 "pescetarian", 

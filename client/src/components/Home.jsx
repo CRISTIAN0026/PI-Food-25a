@@ -71,8 +71,6 @@ export default function Home() {
                     <option value="gluten free">Gluten Free</option> 
                     <option value="ketogenic">Ketogenic</option>
                     <option value="vegetarian">Vegetarian</option>
-                    <option value="lacto vegetarian">Lacto-Vegetarian</option>
-                    <option value="ovo vegetarian">Ovo-Vegetarian</option>
                     <option value="lacto ovo vegetarian">Lacto-Ovo-Vegetarian</option>
                     <option value="vegan">Vegan</option>
                     <option value="pescatarian">Pescatarian</option>
