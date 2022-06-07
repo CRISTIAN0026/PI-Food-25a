@@ -13,7 +13,7 @@ const router = Router();
 // Ejemplo: router.use('/auth', authRouter);
 router.use('/recipes', recipesRouters);
 router.use('/types', dietsRouter);
-router.use('/recipe', recipeRouters);
+router.use('/recipes', recipeRouters);
 
 
 module.exports = router;

@@ -1,12 +1,11 @@
 const axios = require('axios')
 const { Recipes, Diets} = require('../db')
-const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
+//const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
 
 const getApiInfo = async () =>{
     try {
-        let recipes = (await axios(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.YOUR_API_KEY1}&addRecipeInformation=true&number=100`)).data.results 
-        // let recipe = await fetch(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.YOUR_API_KEY1}&addRecipeInformation=true&number=100`)
-        // let recipes = await recipe.json()
+        let recipes = (await axios(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.YOUR_API_KEY}&addRecipeInformation=true&number=100`)).data.results 
+        
     const apiInfo = await recipes.map(e => {
         return {
             id: e.id,
@@ -67,3 +66,5 @@ module.exports={
     getDbInfo,
     getAllRecipes,
 }
+// let recipe = await fetch(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.YOUR_API_KEY}&addRecipeInformation=true&number=100`)
+        // let recipes = await recipe.json()

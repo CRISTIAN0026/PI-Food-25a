@@ -55,7 +55,7 @@ export const getDietTypes = () => {
 export const addRecipe = (payload) => {
     return async () => {
         try {
-            var response = await axios.post('http://localhost:3001/recipe', payload);
+            var response = await axios.post('http://localhost:3001/recipes', payload);
             return response;
         } catch (error) {
             return error
