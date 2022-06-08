@@ -103,7 +103,7 @@ export default function Home() {
                     return(
                     <div key={prevId++} className="card"> 
                         <Link to={'/home/' + e.id} id='link'>
-                    <Card name={e.name} image={e.image ? e.image :'https://www.cocinavital.mx/wp-content/uploads/2018/09/formas-para-decorar-comida-ninos.jpg'} diets={e.diets ? e.diets : e.Diets[0].name} key={e.id}/>
+                    <Card name={e.name} image={e.image ? e.image :'../img/background5.jpg'} diets={e.diets ? e.diets : e.Diets[0].name} key={e.id}/>
                     </Link>
                     </div>
                 )
