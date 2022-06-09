@@ -7,7 +7,23 @@ import './CreateRecipe.css'
 function validate(input) {
     const errors = {};
     if (input.name.length < 2 ) errors.name = 'Add recipe name';
+    for (let i = 0; i < input.name.length; i++) {
+        let num = "0123456789-.,;:_/*-+?'¡¿(){}[]><$!#&%=`´¨çÇ"
+        for (let j = 0; j < num.length; j++) {
+            if(input.name[i] === num[j]){
+                errors.name = "only letters"
+            }
+        }
+    }
     if (input.summary.length < 2) errors.summary = 'Add recipe summary';
+    for (let k = 0; k < input.summary.length; k++) {
+        let numm = "0123456789-.,;:_/*-+?'¡¿(){}[]><$!#&%=`´¨çÇ"
+        for (let l = 0; l < numm.length; l++) {
+            if(input.summary[k] === numm[l]){
+                errors.summary = "only letters"
+            }
+        }
+    }
     if (input.healthScore < 1 || input.healthScore > 100) errors.healthScore = 'Add healthy score';
     if (input.steps.length < 2) errors.steps = 'Add important steps';
     if(input.diets.length < 1){
