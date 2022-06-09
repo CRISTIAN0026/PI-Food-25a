@@ -103,7 +103,7 @@ export default function Home() {
                     return(
                     <div key={prevId++} className="card"> 
                         <Link to={'/home/' + e.id} id='link'>
-                    <Card name={e.name} image={e.image ? e.image :'../img/background5.jpg'} diets={e.diets ? e.diets : e.Diets[0].name} key={e.id}/>
+                    <Card name={e.name} image={e.image ? e.image :'https://www.webconsultas.com/sites/default/files/styles/wc_adaptive_image__small/public/migrated/gastritis-dieta.jpg'} diets={e.diets ? e.diets : e.Diets[0].name} key={e.id}/>
                     </Link>
                     </div>
                 )
