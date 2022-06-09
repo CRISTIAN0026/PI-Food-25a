@@ -27,7 +27,7 @@ export default function Details() {
                 <h1 className='name11'>Name: {myRecipe[0].name}</h1>
                 </div>
                 <div>
-                <img id='img1'src={myRecipe[0].image ? myRecipe[0].image :'https://www.cocinavital.mx/wp-content/uploads/2018/09/formas-para-decorar-comida-ninos.jpg'} alt='' width='500px' height='500px'/>
+                <img id='img1'src={myRecipe[0].image ? myRecipe[0].image :'https://www.webconsultas.com/sites/default/files/styles/wc_adaptive_image__small/public/migrated/gastritis-dieta.jpg'} alt='' width='500px' height='500px'/>
                 <h3 id='h3'>Healthy score: {myRecipe[0].healthScore}</h3>
                 <h5 id='diets'>Diets: {myRecipe[0].diets ?  myRecipe[0].diets + '  ' : myRecipe[0].Diets.map(d =>d.name + ('  '))}</h5>
                 </div>
