@@ -16,6 +16,10 @@ export default function Details() {
         dispatch(getRecipeDetails(id))
     }, [dispatch, id])
     
+    useEffect(()=>{
+        return () =>  {myRecipe.pop()}
+    },[myRecipe])
+    
 
     
     return(
