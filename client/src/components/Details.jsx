@@ -15,6 +15,10 @@ export default function Details() {
     useEffect(() => {
         dispatch(getRecipeDetails(id))
     }, [dispatch, id])
+    
+    useEffect(()=>{
+        return () =>  {recipeDetails.pop()}
+    },[recipeDetails])
 
     const myRecipe = useSelector(state => state.recipeDetails)
     return(
