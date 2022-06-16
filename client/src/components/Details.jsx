@@ -10,17 +10,14 @@ let ids = 1
 export default function Details() {
     const dispatch = useDispatch()
     const {id} = useParams()
-    
+    const myRecipe = useSelector(state => state.recipeDetails)
     
     useEffect(() => {
         dispatch(getRecipeDetails(id))
     }, [dispatch, id])
     
-    useEffect(()=>{
-        return () =>  {recipeDetails.pop()}
-    },[recipeDetails])
 
-    const myRecipe = useSelector(state => state.recipeDetails)
+    
     return(
         <div className='details'>
             { 
