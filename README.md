@@ -18,6 +18,8 @@
 ## Comenzando
 
  1. Clonar el repositorio en sus computadoras para comenzar a trabajar
+ 2. Ejecutar el comando npm install desde ambas carpetas (api, client) para instalar dependecias
+ 3. Ejecutar el comando npm start desde ambas carpetas (api, client) para ver en producion.
 
 
 __IMPORTANTE:__ Es necesario contar minimamente con la última versión estable de Node y NPM. Asegurarse de contar con ella para poder instalar correctamente las dependecias necesarias para correr el proyecto.
